@@ -2,12 +2,12 @@ services:
   postgres:
     image: 'postgres:18'
     environment:
-      - 'POSTGRES_DB=mydatabase'
-      - 'POSTGRES_PASSWORD=secret'
-      - 'POSTGRES_USER=myuser'
+      - 'POSTGRES_DB=dev'
+      - 'POSTGRES_PASSWORD=dev123'
+      - 'POSTGRES_USER=dev'
     ports:
-      - '5432'
+      - "5432:5432"
   redis:
     image: 'redis:8.6.1'
     ports:
-      - '6379'
+      - "6379:6379"
