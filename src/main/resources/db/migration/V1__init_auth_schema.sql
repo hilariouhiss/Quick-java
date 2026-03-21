@@ -22,6 +22,7 @@ ALTER TABLE users
 
 CREATE UNIQUE INDEX users_username_unique_active_idx ON users (username) WHERE deleted_at IS NULL;
 CREATE UNIQUE INDEX users_email_unique_active_idx ON users (email) WHERE deleted_at IS NULL;
+CREATE UNIQUE INDEX users_phone_unique_active_idx ON users (phone) WHERE deleted_at IS NULL;
 
 DO $$
 BEGIN
@@ -80,7 +81,7 @@ COMMENT ON COLUMN users.used_by IS '使用人';
 COMMENT ON COLUMN users.employee_no IS '工号';
 COMMENT ON COLUMN users.phone IS '手机号';
 COMMENT ON COLUMN users.password_hash IS '密码哈希';
-COMMENT ON COLUMN users.status IS '账号状态：0 disabled，1 active，2 locked';
+COMMENT ON COLUMN users.status IS '账号状态枚举：DISABLED(0)、ACTIVE(1)、LOCKED(2)';
 COMMENT ON COLUMN users.created_by IS '创建人ID';
 COMMENT ON COLUMN users.updated_by IS '更新人ID';
 COMMENT ON COLUMN users.deleted_by IS '删除人ID';
